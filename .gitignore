@@ -1,0 +1,13 @@
+# eclipse
+target
+.settings
+.classpath
+.project
+.apt_generated
+.apt_generated_tests
+.factorypath
+
+# idear
+.externalToolBuilders
+.idea
+*.iml
