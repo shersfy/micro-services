@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: SidecarProxyServer
+server:
+  port: 8081
+# sidecar
+sidecar:
+  port: 8080
+  hostname: localhost
+  health-uri: http://${sidecar.hostname}:${sidecar.port}/health.json
+# eureka
+eureka:
+  client:
+    eureka-server-port: 8899
+    service-url:
+            defaultZone: http://127.0.0.1:8899/eureka
+# logging
+logging:
+  file: logs/app.log
+  file.max-size: 100MB
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'
