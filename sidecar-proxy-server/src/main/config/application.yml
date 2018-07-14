@@ -1,6 +1,6 @@
 spring:
   application:
-    name: SidecarProxyServer
+    name: xxx-app-sidecar-proxy
 server:
   port: 8081
 # sidecar
@@ -13,7 +13,7 @@ eureka:
   client:
     eureka-server-port: 8899
     service-url:
-            defaultZone: http://127.0.0.1:8899/eureka
+      defaultZone: http://127.0.0.1:8899/eureka/
 # logging
 logging:
   file: logs/app.log
