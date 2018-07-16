@@ -1,4 +1,4 @@
-package org.shersfy.sidecar;
+package org.shersfy.sidecar.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.Banner.Mode;
@@ -9,10 +9,10 @@ import org.springframework.cloud.netflix.sidecar.EnableSidecar;
 @SpringBootApplication
 @EnableSidecar
 @EnableEurekaClient
-public class SidecarProxyServer {
+public class SidecarProxyService {
 
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(SidecarProxyServer.class);
+		SpringApplication app = new SpringApplication(SidecarProxyService.class);
 		app.setBannerMode(Mode.OFF);
 		app.run(args);
 	}
