@@ -1,4 +1,4 @@
-package org.shersfy.eureka;
+package org.shersfy.eureka.boot;
 
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
