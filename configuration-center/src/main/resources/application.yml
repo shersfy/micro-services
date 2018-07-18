@@ -7,8 +7,8 @@ spring:
       server:
         git:
           uri: git@github.com:shersfy/config-repo.git 
-          username: shersfy@163.com
-          password: n28576339
+          username: username
+          password: password
 server:
   port: 8877
  
