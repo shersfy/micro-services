@@ -1,13 +1,17 @@
 spring:
   application:
-    name: xxx-app-sidecar-proxy
+    name: configuration-center
+# git config server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:shersfy/config-repo.git 
+          username: shersfy@163.com
+          password: n28576339
 server:
-  port: 8081
-# sidecar
-sidecar:
-  port: 8080
-  hostname: 172.18.9.195
-  health-uri: http://${sidecar.hostname}:${sidecar.port}/health.json
+  port: 8877
+ 
 # eureka client
 eureka:
   client:
@@ -15,6 +19,7 @@ eureka:
     eureka-server-port: 8899
     service-url:
       defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
+
 # logging
 logging:
   file: logs/app.log

@@ -1,4 +1,4 @@
-package org.shersfy.eureka.boot;
+package org.shersfy.register.boot;
 
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
@@ -7,10 +7,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @EnableEurekaServer
 @SpringBootApplication
-public class EurekaServer {
+public class RegistrationServer {
     
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(EurekaServer.class);
+        SpringApplication app = new SpringApplication(RegistrationServer.class);
         app.setBannerMode(Mode.OFF);
         app.run(args);
     }

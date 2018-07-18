@@ -1,13 +1,8 @@
 spring:
   application:
-    name: xxx-app-sidecar-proxy
+    name: app-onos
 server:
-  port: 8081
-# sidecar
-sidecar:
-  port: 8080
-  hostname: 172.18.9.195
-  health-uri: http://${sidecar.hostname}:${sidecar.port}/health.json
+  port: 8181
 # eureka client
 eureka:
   client:

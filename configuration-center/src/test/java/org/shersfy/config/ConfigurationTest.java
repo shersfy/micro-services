@@ -1,8 +1,8 @@
-package org.shersfy.eureka;
+package org.shersfy.config;
 
 import org.junit.Test;
 
-public class EurekaTest {
+public class ConfigurationTest {
 	
 	@Test
 	public void test01() {

@@ -1,8 +1,9 @@
 spring:
   application:
-    name: eureka-server
+    name: registration-center
 server:
   port: 8899
+# eureka client
 eureka:
   instance:
     hostname: 172.18.9.201

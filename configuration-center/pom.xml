@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shersfy</groupId>
-	<artifactId>registration-center</artifactId>
+	<artifactId>configuration-center</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<url>http://maven.apache.org</url>
@@ -46,7 +46,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
