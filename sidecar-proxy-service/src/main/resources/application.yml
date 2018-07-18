@@ -6,14 +6,15 @@ server:
 # sidecar
 sidecar:
   port: 8080
-  hostname: localhost
+  hostname: 172.18.9.195
   health-uri: http://${sidecar.hostname}:${sidecar.port}/health.json
 # eureka
 eureka:
   client:
+    eureka-server-host: 172.18.9.201
     eureka-server-port: 8899
     service-url:
-      defaultZone: http://127.0.0.1:8899/eureka/
+      defaultZone: http://${eureka.client.eureka-server-host}:${eureka.client.eureka-server-port}/eureka/
 # logging
 logging:
   file: logs/app.log
