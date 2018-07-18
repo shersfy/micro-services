@@ -1,6 +1,12 @@
 spring:
   application:
     name: app-onos
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://172.28.23.93:3306/sdn?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: 123456
+# server
 server:
   port: 8181
 # eureka client
