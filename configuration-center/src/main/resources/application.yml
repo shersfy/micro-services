@@ -3,17 +3,22 @@ spring:
     name: configuration-center
 # git config server
   cloud:
-    config:
-      server:
-        git:
-          uri: git@github.com:shersfy/config-repo.git 
-          username: username
-          password: password
+      config:
+        server:
+          git:
+            uri: https://github.com/shersfy/config-repo.git
+            search-paths: /**
+            username: shersfy@163.com
+            password: n28576339
+            
 server:
   port: 8877
  
 # eureka client
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     eureka-server-d-n-s-name: 172.18.9.201
     eureka-server-port: 8899

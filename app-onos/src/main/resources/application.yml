@@ -1,6 +1,11 @@
 spring:
   application:
     name: app-onos
+  cloud:
+    config:
+      discovery:
+        service-id: 
+# config
 server:
   port: 8081
 # eureka client
