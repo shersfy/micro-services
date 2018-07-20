@@ -8,6 +8,8 @@ eureka:
   instance:
     prefer-ip-address: true
     hostname: localhost
+  server:
+    enable-self-preservation: false
   client:
     register-with-eureka: false
     fetch-registry: false
@@ -15,7 +17,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 # logging
 logging:
-  file: logs/app.log
+  file: logs/${spring.application.name}.log
   file.max-size: 100MB
   level:
     root: info
