@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tcc-transaction
+server:
+  port: 8080
+ 
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  file.max-size: 100MB
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'
