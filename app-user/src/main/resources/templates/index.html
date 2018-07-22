@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>首页</title>
 </head>
 <body>
-	<h2>User Application</h2>
+	<div class="container" th:replace="common :: header"></div>
+	<!-- <div class="container" th:replace="common :: menu"></div> -->
+	<div class="container">
+		欢迎, <span th:text="${username}"></span>登录
+	</div>
+	<div th:replace="common :: menu"></div>
+	<div class="container" th:replace="common :: footer"></div>
 </body>
 </html>

@@ -7,12 +7,13 @@
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="roles" property="roles" jdbcType="VARCHAR" />
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		id, username, password, create_time, update_time
+		id, username, password, roles, create_time, update_time
 	</sql>
 	
 	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -20,13 +21,17 @@
 		<include refid="Base_Column_List" />
 		from user
 		where id = #{id,jdbcType=BIGINT}
-
+	</select>
+	
+	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where username = #{username,jdbcType=BIGINT}
 	</select>
 	
 	<delete id="deleteById" parameterType="java.lang.Long">
-
-		delete from user
-		where id = #{id,jdbcType=BIGINT}
+		delete from user where id = #{id,jdbcType=BIGINT}
 	</delete>
 	
 	<update id="updateById" parameterType="org.shersfy.user.model.User">
@@ -37,6 +42,9 @@
 			</if>
 			<if test="password != null">
 				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="roles != null">
+				roles = #{roles,jdbcType=VARCHAR},
 			</if>
 			<if test="createTime != null">
 				create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -49,10 +57,10 @@
 	</update>
 	
 	<insert id="insert" parameterType="User" keyProperty="id" useGeneratedKeys="true">
-		insert into user (id, username, password,
+		insert into user (id, username, password, roles,
 		create_time, update_time)
 		values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR},
 		#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
 	</insert>
 	
@@ -79,6 +87,7 @@
 		<where>
 			<if test="username != null">and username = #{username, jdbcType=VARCHAR}</if>
 			<if test="password != null">and password = #{password, jdbcType=VARCHAR}</if>
+			<if test="roles != null">and roles = #{roles, jdbcType=VARCHAR}</if>
 		</where>
 	</sql>
 </mapper>

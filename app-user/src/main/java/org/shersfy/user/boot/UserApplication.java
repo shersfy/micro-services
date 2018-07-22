@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
 @ComponentScan("org.shersfy.user")
 @MapperScan("org.shersfy.user.mapper")
+@SpringBootApplication
 public class UserApplication {
 
 	public static void main(String[] args) {
