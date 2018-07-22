@@ -24,6 +24,7 @@ public class AuthController {
 			return mav;
 		}
 		mav.setViewName("index");
+		mav.addObject("username", principal.getName());
 		return mav;
 	}
 	

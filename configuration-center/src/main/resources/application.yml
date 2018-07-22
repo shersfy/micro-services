@@ -8,7 +8,7 @@ spring:
           git:
             clone-on-start: true
             uri: https://github.com/shersfy/config-repo
-            search-paths: /{application}
+            search-paths: '{application}'
 server:
   port: 8877
  
