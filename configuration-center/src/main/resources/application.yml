@@ -6,23 +6,21 @@ spring:
       config:
         server:
           git:
-            uri: https://github.com/shersfy/config-repo.git
-            search-paths: /**
-#            username: username
-#            password: password
-            
+            clone-on-start: true
+            uri: https://github.com/shersfy/config-repo
+            search-paths: /{application}
 server:
   port: 8877
  
 # eureka client
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    eureka-server-d-n-s-name: 172.18.9.201
-    eureka-server-port: 8899
-    service-url:
-      defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    eureka-server-d-n-s-name: 172.18.9.201
+#    eureka-server-port: 8899
+#    service-url:
+#      defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
 
 # logging
 logging:

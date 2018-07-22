@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: app-user
+# config
+  cloud:
+    config:
+      uri: http://localhost:8877
+      label: master
+      profile: dev
+# logging
+logging:
+  file.max-size: 100MB
