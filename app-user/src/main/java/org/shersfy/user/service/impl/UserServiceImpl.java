@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.shersfy.user.mapper.BaseMapper;
 import org.shersfy.user.mapper.UserMapper;
 import org.shersfy.user.model.User;
+import org.shersfy.user.model.UserDetail;
 import org.shersfy.user.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,7 +36,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long>
 		if(user == null) {
 			throw new UsernameNotFoundException(String.format("user '%s' not exist", username));
 		}
-		return user;
+		return new UserDetail(user);
 	}
 	
 	public String getAuthorityByLoginId(String username ){
