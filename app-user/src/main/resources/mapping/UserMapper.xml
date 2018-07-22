@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.shersfy.user.mapper.UserMapper">
+	<resultMap id="BaseResultMap"
+		type="org.shersfy.user.model.User">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="username" property="username"
+			jdbcType="VARCHAR" />
+		<result column="password" property="password"
+			jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime"
+			jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+
+		id, username, password, create_time, update_time
+	</sql>
+	<select id="findById" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+
+		select
+
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=BIGINT}
+
+	</select>
+	<delete id="deleteById" parameterType="java.lang.Long">
+
+		delete from user
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<update id="updateById"
+		parameterType="org.shersfy.user.model.User">
+
+		update user
+
+		<set>
+
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+
+	</update>
+	<insert id="insert" parameterType="User" keyProperty="id"
+		useGeneratedKeys="true">
+
+		insert into user (id, username, password,
+		create_time, update_time)
+		values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+	</insert>
+	
+	<select id="findList" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		<include refid="condition" />
+		<choose>
+			<when test="(sort !=null and sort !='') and (order !=null and order !='')">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>order by id asc</otherwise>
+		</choose>
+		<if test="startIndex !=null  and pageSize !=null">limit #{startIndex}, #{pageSize}</if>
+	</select>
+	
+	<select id="findListCount" resultType="Long" parameterType="map">
+		select count(1) from user
+		<include refid="condition" />
+	</select>
+	
+	<sql id="condition">
+		<where>
+			<if test="username != null">and username = #{username, jdbcType=VARCHAR}</if>
+			<if test="password != null">and password = #{password, jdbcType=VARCHAR}</if>
+		</where>
+	</sql>
+</mapper>
