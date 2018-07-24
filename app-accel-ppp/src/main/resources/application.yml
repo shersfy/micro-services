@@ -3,19 +3,17 @@ spring:
     name: app-onos
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://172.28.23.93:3306/sdn?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://172.18.9.214:3306/sdn?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
 # server
 server:
   port: 8181
-# eureka client
+# eureka server
 eureka:
   client:
-    eureka-server-d-n-s-name: 172.18.9.201
-    eureka-server-port: 8899
     service-url:
-      defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
+      defaultZone: http://localhost:8761/eureka/
 # logging
 logging:
   file: logs/${spring.application.name}.log

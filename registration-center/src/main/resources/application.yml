@@ -2,14 +2,13 @@ spring:
   application:
     name: registration-center
 server:
-  port: 8899
+  port: 8761
 # eureka client
 eureka:
   instance:
-    prefer-ip-address: true
     hostname: localhost
-  server:
-    enable-self-preservation: false
+#  server:
+#    enable-self-preservation: false
   client:
     register-with-eureka: false
     fetch-registry: false

@@ -9,10 +9,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 @EnableDiscoveryClient
 @SpringBootApplication
-public class ConfigurationServer {
+public class ConfigurationCenter {
     
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(ConfigurationServer.class);
+        SpringApplication app = new SpringApplication(ConfigurationCenter.class);
         app.setBannerMode(Mode.OFF);
         app.run(args);
     }
