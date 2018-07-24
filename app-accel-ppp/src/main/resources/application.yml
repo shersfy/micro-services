@@ -18,7 +18,7 @@ eureka:
       defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
 # logging
 logging:
-  file: logs/app.log
+  file: logs/${spring.application.name}.log
   file.max-size: 100MB
   level:
     root: info
