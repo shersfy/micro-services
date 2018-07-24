@@ -4,6 +4,6 @@ public interface OnosService {
     
     public void receivedData(String data);
 
-    public String getConfig();
+    public String getVersion();
 
 }

@@ -1,0 +1,46 @@
+server:
+  port: 8877
+spring:
+  application:
+    name: configuration-center
+# git config server
+  cloud:
+    config:
+      server:
+        git:
+          clone-on-start: true
+          uri: https://github.com/shersfy/config-repo
+          search-paths: '{application}'
+    bus:
+      enabled: true
+# MQ
+#  kafka:
+#    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
+#    template:
+#      default-topic: topic-onos
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, bus-refresh
+encrypt:
+  key: shersfy
+# eureka client
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    eureka-server-d-n-s-name: 172.18.9.201
+#    eureka-server-port: 8899
+#    service-url:
+#      defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
+
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  file.max-size: 100MB
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'

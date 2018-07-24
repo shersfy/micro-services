@@ -13,11 +13,11 @@ public class OnosServiceImpl implements OnosService{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OnosService.class);
     
-    @Value("${logging.file}")
-    private String loggingFile;
+    @Value("${onos.version}")
+    private String version;
     
-    @Value("${logging.level}")
-    private String loggingLevel;
+    @Value("${onos.subversion}")
+    private String subVersion;
     
     @Override
     public void receivedData(String data) {
@@ -25,8 +25,8 @@ public class OnosServiceImpl implements OnosService{
     }
 
     @Override
-    public String getConfig() {
-        return String.format("level: %s, file:%s", loggingLevel, loggingFile);
+    public String getVersion() {
+        return String.format("ONOS version: %s.%s", version, subVersion);
     }
 
 }
