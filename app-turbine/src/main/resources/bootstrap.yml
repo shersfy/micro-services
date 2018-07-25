@@ -1,0 +1,37 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: app-onos-hystrix
+# eureka server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# hystrix
+# feign.hystrix.enabled=true 必须加不然无效
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - hystrix.stream
+        
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  file.max-size: 100MB
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'
+# version
+onos:
+  version: onos-v1.3
+  subversion: 12
