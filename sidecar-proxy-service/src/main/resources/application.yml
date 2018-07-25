@@ -1,20 +1,20 @@
+server:
+  port: 8084
 spring:
   application:
-    name: xxx-app-sidecar-proxy
-server:
-  port: 8081
+    name: app-nginx-sidecar-proxy
 # sidecar
 sidecar:
-  port: 8080
-  hostname: 172.18.9.195
+  port: 80
+  hostname: 192.168.186.128
   health-uri: http://${sidecar.hostname}:${sidecar.port}/health.json
-# eureka client
+# eureka server
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
-    eureka-server-d-n-s-name: 172.18.9.201
-    eureka-server-port: 8899
     service-url:
-      defaultZone: http://${eureka.client.eureka-server-d-n-s-name}:${eureka.client.eureka-server-port}/eureka/
+      defaultZone: http://localhost:8761/eureka/
 # logging
 logging:
   file: logs/${spring.application.name}.log

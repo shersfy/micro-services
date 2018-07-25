@@ -2,7 +2,8 @@ package org.shersfy.onos.rest;
 
 import javax.annotation.Resource;
 
-import org.shersfy.onos.boot.OnosFeignClient;
+import org.shersfy.onos.boot.AccelFeignClient;
+import org.shersfy.onos.boot.NginxFeignClient;
 import org.shersfy.onos.service.OnosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,9 @@ public class OnosController {
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
-    private OnosFeignClient onosFeignClient;
+    private AccelFeignClient onosFeignClient;
+    @Autowired
+    private NginxFeignClient nginxFeignClient;
     
     @GetMapping("/version")
     public String getVersion() {
@@ -39,13 +42,20 @@ public class OnosController {
     }
     
     @GetMapping("/user/offline")
-    public boolean callPPPUserOffline(String username) {
+    public boolean callAccelUserOffline(String username) {
         return restTemplate.getForObject("http://app-accel-ppp/offline/"+username, Boolean.class);
     }
     
     @GetMapping("/user/offline2")
-    public boolean callPPPUserOffline2(String username) {
+    public boolean callAccelUserOffline2(String username) {
         return onosFeignClient.callPPPUserOffline(username);
     }
+    
+    
+    @GetMapping("/nginx/hello")
+    public String callHello() {
+        return nginxFeignClient.callHello();
+    }
 
+    
 }

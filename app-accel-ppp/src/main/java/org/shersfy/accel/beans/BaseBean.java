@@ -1,4 +1,4 @@
-package org.shersfy.common.beans;
+package org.shersfy.accel.beans;
 
 import java.io.Serializable;
 

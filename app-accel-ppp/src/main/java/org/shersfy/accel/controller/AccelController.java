@@ -2,8 +2,8 @@ package org.shersfy.accel.controller;
 
 import javax.annotation.Resource;
 
+import org.shersfy.accel.beans.Result;
 import org.shersfy.accel.service.AccelService;
-import org.shersfy.common.beans.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
