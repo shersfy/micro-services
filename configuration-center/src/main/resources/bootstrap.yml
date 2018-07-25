@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8877
 spring:
   application:
     name: configuration-center
@@ -13,6 +13,9 @@ spring:
           search-paths: '{application}'
     bus:
       enabled: true
+# MQ
+  kafka:
+    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
 # thymeleaf
   thymeleaf:
     cache: false
@@ -28,11 +31,6 @@ spring:
     servlet:
       content-type: text/html
     suffix: .html
-# MQ
-#  kafka:
-#    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
-#    template:
-#      default-topic: topic-onos
 management:
   endpoints:
     web:

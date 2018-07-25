@@ -12,10 +12,8 @@ spring:
     bus:
       enabled: true
 # MQ
-#  kafka:
-#    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
-#    template:
-#      default-topic: topic-onos
+  kafka:
+    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
 management:
   endpoints:
     web:
