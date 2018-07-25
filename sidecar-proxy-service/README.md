@@ -3,6 +3,7 @@
 2. 每个Nginx当做一个微服务，客户端侧负载均衡访问Nginx节点，Nginx侧服务端负载均衡访问服务server;
 3. Nginx配置
    ### health check
+         # health check
          location /health.json {
            default_type application/json;
            return 200 '{"status":"UP"}';
