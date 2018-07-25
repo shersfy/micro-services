@@ -4,21 +4,29 @@ import javax.annotation.Resource;
 
 import org.shersfy.accel.service.AccelService;
 import org.shersfy.common.beans.Result;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/dial")
+@RestController
 public class AccelController {
     
     @Resource
     private AccelService accelService;
     
-    @RequestMapping("/alloc")
+    @GetMapping("/dial/alloc")
     public Result allocIP() {
         Result res = new Result();
         res.setModel(accelService.findIp());
         return res;
+    }
+    
+    @GetMapping("/offline/{username}")
+    public boolean offline(@PathVariable("username")String username) {
+        Result res = new Result();
+        System.out.println(String.format("===========offline: %s================", username));
+        res.setModel(username);
+        return true;
     }
 
 }

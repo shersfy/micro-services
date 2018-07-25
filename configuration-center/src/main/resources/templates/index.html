@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ConfigurationCenter</title>
+
+<meta charset="UTF-8" />
+
+</head>
+<body>
+	<h2>Welcome Spring Cloud Config</h2>
+	Git repository: <br/>
+	<a th:href="${gitUri}" target="_blank" th:text="|${gitUri}|"></a><br/>
+	<button>刷新配置</button>
+</body>
+</html>

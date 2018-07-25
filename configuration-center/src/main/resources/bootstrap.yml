@@ -13,6 +13,21 @@ spring:
           search-paths: '{application}'
     bus:
       enabled: true
+# thymeleaf
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    enable-spring-el-compiler: false
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    reactive:
+      max-chunk-size: 0
+    servlet:
+      content-type: text/html
+    suffix: .html
 # MQ
 #  kafka:
 #    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
@@ -32,7 +47,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
 # logging
 logging:
   file: logs/${spring.application.name}.log
