@@ -22,6 +22,6 @@ fi
 if [ ! -d "./logs" ]; then
   mkdir ./logs
 fi
-
-nohup $javahome/bin/java -jar $jar_name > logs/stdout.log 2>&1 &
+# 后台执行输出空
+nohup $javahome/bin/java -jar $jar_name 1>/dev/null 2>&1 &
 echo "`date '+%Y-%m-%d %H:%M:%S'` ${jar_name} is running..."
