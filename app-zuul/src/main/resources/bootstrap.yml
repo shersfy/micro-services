@@ -16,6 +16,12 @@ zuul:
 #  - app-nginx-sidecar-proxy
   routes:
     app-onos: /onos/**
+#    app-onos: 
+#      path: /onos/**
+#      service-id: app-onos
+#    app-onos: 
+#      path: /onos/**
+#      url: https://www.baidu.com/
 # logging
 logging:
   file: logs/${spring.application.name}.log
