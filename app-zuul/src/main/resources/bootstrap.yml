@@ -1,0 +1,27 @@
+server:
+  port: 8094
+spring:
+  application:
+    name: app-zuul
+# eureka server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# zuul reverse proxy, 默认方向代理注册到eureka微服务
+zuul:
+#  ignored-services:
+#  - app-nginx-sidecar-proxy
+  routes:
+    app-onos: /onos/**
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  file.max-size: 100MB
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'
