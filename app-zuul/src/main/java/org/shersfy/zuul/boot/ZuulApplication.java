@@ -3,12 +3,13 @@ package org.shersfy.zuul.boot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableZuulProxy // EnableZuulServer增强 eureka、ribbon
 //@EnableZuulServer
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @ComponentScan("org.shersfy.zuul")
 @SpringBootApplication
 public class ZuulApplication {
