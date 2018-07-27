@@ -21,5 +21,4 @@ public class UserController {
 		return userService.findPage(where, 1, 10);
 	}
 	
-
 }

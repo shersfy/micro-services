@@ -9,6 +9,24 @@ spring:
       uri: http://localhost:8888
       label: master
       profile: dev
+# MQ
+    bus:
+      enabled: true
+  kafka:
+    client-id: client-app-user
+    bootstrap-servers: zknode1:9092, zknode2:9092, zknode3:9092
+    template:
+      default-topic: app-user
+    consumer:
+      group-id: app-user
+# 以下几个配置测试过配置不生效，怀疑是bus把配置修改为ByteArrayDeserializer
+# 注释掉bus依赖后配置生效
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+        
 # eureka server
 eureka:
   instance:
