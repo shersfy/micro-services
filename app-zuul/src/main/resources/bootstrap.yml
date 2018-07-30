@@ -10,7 +10,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-# zuul reverse proxy, 默认方向代理注册到eureka微服务
+# zuul reverse proxy, 默认反向代理注册到eureka微服务
 zuul:
 #  ignored-services:
 #  - app-nginx-sidecar-proxy
