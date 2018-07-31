@@ -5,9 +5,11 @@ import java.security.Principal;
 
 import javax.annotation.Resource;
 import org.shersfy.user.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -16,6 +18,8 @@ public class AuthController {
 	
 	@Resource
     private UserService userService;
+	@Value("${version}")
+	private String version;
 	
 	@RequestMapping("/index.html")
 	public ModelAndView index(Principal principal) {
@@ -50,6 +54,12 @@ public class AuthController {
 		ModelAndView mav = new ModelAndView("expired");
 		mav.addObject("loginError", true);
 		return mav;
+	}
+	
+	@RequestMapping("/version")
+	@ResponseBody
+	public String version() {
+	    return version;
 	}
 	
 }
