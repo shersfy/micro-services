@@ -9,6 +9,7 @@ import org.shersfy.user.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,6 +36,16 @@ public class UserController {
     @GetMapping("/user/list")
     public Object list(User where){
         return userService.findPage(where, 1, 10);
+    }
+    
+    @GetMapping("/user/{id}")
+    public Object list(@PathVariable("id")Long id){
+        return userService.findById(id);
+    }
+    
+    @GetMapping("/user/update")
+    public Object update(User user){
+        return userService.updateById(user);
     }
 
     @GetMapping("/hikari/monitor")
