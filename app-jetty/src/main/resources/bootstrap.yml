@@ -1,8 +1,8 @@
 server:
-  port: 8084
+  port: 8082
 spring:
   application:
-    name: app-onos-hystrix
+    name: app-jetty
 # eureka server
 eureka:
   instance:
@@ -10,19 +10,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-# hystrix
-# feign.hystrix.enabled=true 必须加不然无效
-feign:
-  hystrix:
-    enabled: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-        - hystrix.stream
-        - health
-        
 # logging
 logging:
   file: logs/${spring.application.name}.log
@@ -32,7 +19,3 @@ logging:
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss.SSS
     level: '%5p'
-# version
-onos:
-  version: onos-v1.3
-  subversion: 12
