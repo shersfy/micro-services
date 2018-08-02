@@ -7,8 +7,8 @@ spring:
       register-mbeans: true
       pool-name: hikari-pool
       driver-class-name: com.mysql.jdbc.Driver
-#      jdbc-url: jdbc:mysql://127.0.0.1:3306/shersfy?useUnicode=true&characterEncoding=utf8&useSSL=false
-      jdbc-url: jdbc:mysql://172.18.9.214:3306/shersfy?useUnicode=true&characterEncoding=utf8&useSSL=false
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/shersfy?useUnicode=true&characterEncoding=utf8&useSSL=false
+#      jdbc-url: jdbc:mysql://172.18.9.214:3306/shersfy?useUnicode=true&characterEncoding=utf8&useSSL=false
       username: '{cipher}6d7a6184efc2a28a9c7e7b31ca462a8099b3a637607fd68262cb44dc99388f69'
       password: '{cipher}1033b1da3eee0e66e254fd8560df4d81f2f69b8d75cce4befb3d756d0d4ec088'
 # logging
