@@ -1,8 +1,8 @@
 server:
-  port: 8083
+  port: 8087
 spring:
   application:
-    name: app-onos
+    name: app-user-chdb
 # config
   cloud:
     config:
@@ -13,13 +13,12 @@ spring:
     bus:
       enabled: true
   kafka:
-    bootstrap-servers: zknode1:9092,zknode2:9092,zknode3:9092
+    bootstrap-servers: zknode1:9092, zknode2:9092, zknode3:9092
 management:
   endpoints:
     web:
       exposure:
-        include: refresh, bus-refresh
-
+        include: '*'
 # eureka server
 eureka:
   instance:
@@ -27,12 +26,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+# mybatis
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: org.shersfy.user.model
 # logging
 logging:
-  file: logs/${spring.application.name}.log
   file.max-size: 100MB
-  level:
-    root: info
-  pattern:
-    dateformat: yyyy-MM-dd HH:mm:ss.SSS
-    level: '%5p'
