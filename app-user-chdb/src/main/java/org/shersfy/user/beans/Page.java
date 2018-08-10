@@ -5,9 +5,6 @@ import java.util.List;
 
 /**
  * 分页
- * @author PengYang
- * @date 2016-08-26
- *
  * @param <T>
  */
 public class Page<T> {
