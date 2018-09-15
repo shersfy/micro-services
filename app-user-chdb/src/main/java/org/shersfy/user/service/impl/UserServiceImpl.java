@@ -2,13 +2,14 @@ package org.shersfy.user.service.impl;
 
 import javax.annotation.Resource;
 
-import org.shersfy.user.mapper.BaseMapper;
-import org.shersfy.user.mapper.UserMapper;
 import org.shersfy.user.mapper.annotation.UserDao;
 import org.shersfy.user.model.User;
 import org.shersfy.user.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.datahub.log.mapper.BaseMapper;
+import com.datahub.log.mapper.UserMapper;
 
 @Service
 @Transactional

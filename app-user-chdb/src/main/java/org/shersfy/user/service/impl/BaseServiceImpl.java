@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.shersfy.user.beans.Page;
-import org.shersfy.user.mapper.BaseMapper;
 import org.shersfy.user.model.BaseEntity;
 import org.shersfy.user.service.BaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.datahub.log.mapper.BaseMapper;
 
 public abstract class BaseServiceImpl<T extends BaseEntity, Id extends Serializable> 
 	implements BaseService<T, Id> {
