@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONObject;
+
 @RestController
-public class JettyController {
+public class JettyController extends BaseController{
     
     protected Logger LOGGER = LoggerFactory.getLogger(getClass());
     
@@ -27,4 +29,15 @@ public class JettyController {
     	user.setBirthday(new Date());
     	return user;
     }
+    
+    @PostMapping("/remote/info")
+    public Object getRemote() {
+    	JSONObject data = new JSONObject();
+    	data.put("remoteHost", getRequest().getRemoteHost());
+    	data.put("remoteAddr", getRequest().getRemoteAddr());
+    	data.put("servletPath", getRequest().getServletPath());
+    	return data;
+    }
+    
+    
 }
